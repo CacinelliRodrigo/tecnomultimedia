@@ -1,264 +1,154 @@
 //https://youtu.be/l8zsOpsCDIs
+//https://youtu.be/Cc37QJbMEww
+
+PImage[] p = new PImage[25];
+String[] t;
 
 PFont fuente;
-PImage[] p = new PImage[25];
 int pantalla = 0;
 int mov = 600;
 
 void setup(){
+  
   size(800, 500);
   fuente = loadFont("letras.vlw");
-  textFont(fuente);
+  textFont(fuente); 
+  
+  t = loadStrings("list.txt");
 
-for(int i = 0 ; i < p.length ; i++){
-  p[i] = loadImage("pantalla" + i + ".png");
+  for(int i = 0 ; i < p.length ; i++){
+    p[i] = loadImage("pantalla" + i + ".png");
 }
   
 }
 void draw(){
   if(pantalla == 0){
     
-    textSize(20);
     image(p[pantalla],0,0,width,height);
-    strokeWeight(6);
-    stroke(255,243,3);
-    fill(0);
-    rect(355,225,100,50);
-    fill(255);
-    textAlign(CENTER);
-    text("START",405,255);
     
-    textSize(20);
-    fill(234,212,43);
-    rect(500,400,130,80);
-    textAlign(LEFT);
-    fill(0);
-    text("CREDITOS", 510, 450);
+    //START
+    boton(350,240,100,50,29);
+    //CREDITOS
+    boton(500,400,130,80,27);
     
   }else if(pantalla == 1){
-  
+    
+   fondo();
    cuadrotexto();
-   botoncontinuar();
-   
-   //TEXTO
-   fill(0);
-   textSize(20);
-   textAlign(LEFT);
-   text("Gepeto es un pobre campecino, que un dia, se le ocurrio hacer un niño de madera con\nuna leño parlanchina que le habia regalado el leñador del pueblo.",30,375);
+   botoncontinuar(30);
   
   }else if(pantalla == 2){
     
+    fondo();
+    botonesdecision(31,32);
     cuadrotexto();
-    botonesdecision();
-    
-    
-    //TEXTO
-    textSize(20);
-    fill(0);
-    text("¡Asi es como nace Pinocho!...\nSe levanta y se hacerca a Gepeto ¿Que hará?",30,375);
-    
-    textSize(17);
-    text("En la cara",20,40 );
-    text("En la rodilla",15,110);
- 
     
     }else if(pantalla == 3){
       
+      fondo();
       cuadrotexto();
-      botonreiniciar();
+      boton(650,400,130,80,26);
       
-      //TEXTO
-      fill(0);
-      text("PINOCHO GOLPEA FUERTE MUCHAS VECES A GEPETO!....ESTO LO\n HACE ENOJAR MUCHO!!! TANTO QUE TIRA A PINOCHO AL FUEGO \nY MUERE QUEMADO...\n\n\nUn poco drástica la reaccion...",30,375);
       
     }else if(pantalla==4){
       
+      fondo();
       cuadrotexto();
-      botonesdecision();
-    
-      //TEXTO
-      fill(0);
-      textSize(20);
-      text("PINOCHO LE DA UN PATADON EN LA RODILLA TAN FUERTE QUE HACE \nCAER AL CARPINTERO!",30,375);  
-      textSize(17);
-      text("Serguir \npatenado",20,35 );
-      text("Escapar",25,110);
+      botonesdecision(33,34);
     
     }else if(pantalla==5){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
-
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Pinocho decide seguir pateando al pobre Gepeto....",30,375);  
+      botoncontinuar(30);
       
       
     }else if(pantalla==6){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
-    
-      //TEXTO
-      fill(0);
-      textSize(20);
-      text("Pinocho escapa al pueblo Gepeto lo trajo al mundo.",30,375);  
+      botoncontinuar(30);
+   
       
     
     }else if(pantalla==7){
-      
+      fondo();
       cuadrotexto();
-      botonesdecision();
-    
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Un guardia ve desnudo a Pinocho y lo levanta para preguntarle sorprendido \nporque esta así.",30,375); 
-      textSize(17);
-      text("Culpar a \nGepeto",20,35 );
-      text("No hablar",25,110);
-      
-      //BOTONES DE ELECCIO SI HABALR O NO
+      botonesdecision(35,36);
     
     }else if(pantalla==8){
-
+      fondo();
       cuadrotexto();
-      botonreiniciar();
-    
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Por algun motivo no muy conveniente para la historia Pinocho \ndecide no hablar, haciendo enojar al guardia que lo \nmanda preso por andar desnudo en la vía pública.",30,375);  
+      boton(650,400,130,80,26);
+     
     
     }else if(pantalla==9){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
-    
-      //TEXTO
-      fill(0);
-      textSize(20);
-      text("-¡ME TALLÓ GEPETO!\nLe dijo Pinocho al guardia. Sin mas que decir el guardia lo baja y \nse va en busca de Gepeto.",30,375);  
+      botoncontinuar(30);
  
     }else if(pantalla==10){
-      
+      fondo();
       cuadrotexto();
-      botonesdecision();
-    
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("El guardia sin mediar palabras con Gepeto lo arresta y lo mete preso \npor acoso a menores...\n\n...\nturbio...",30,375); 
-      textSize(17);
-      text("Volver a \ncasa",20,35 );
-      text("Irse de joda",20,110);
-      
-      //BOTONES DE ELECCIOS SI VOLVER A CASA O NO
+      botonesdecision(37,38);
       
     }else if(pantalla==11){
-      
+      fondo();
       cuadrotexto();
-      botonreiniciar();
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Pinocho decide no volver a su casa y vivir la vida loca...fue asesinado a los \npocos dias por meterse con la mafia de la aldea",30,375);  
+      boton(650,400,130,80,26);
             
     }else if(pantalla==12){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Pinocho decide volver a su casa pero no encuentra a Gepeto, \npero si a alguien mas...",30,375);  
-      
     }else if(pantalla==13){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
-    
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("¡ES PEPE EL GRILLO QUERIENDO REGAÑARLO POR\n LO QUE LE HIZO A SU PADRE!",30,375);       
+      botoncontinuar(30);
+      
       
     }else if(pantalla==14){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Pinocho le lanza un martillo para que se calle Pepe Grillo.",30,375);  
       
     }else if(pantalla==15){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Desgraciadamente Pepe Grillo no sobrevivió a semejante golpe...",30,375);  
-      
     }else if(pantalla==16){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      fill(0);
-      textSize(20);
-      text("Despues de lanzarle el martillo al pobre Grillo, Pinocho \ndecide tomar una siesta junto al fuego...",30,375);  
 
     }else if(pantalla==17){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Se duerme tan cerca que el fuego prende sus piernas por completo...",30,375);  
        
     }else if(pantalla==18){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
-    
-      //TEXTO
-      fill(0);
-      textSize(20);
-      text("Por suerte logra salvarse pero queda inmovil en ese lugar hasta \nque su padre pueda salir de la carcel.",30,375);  
+      botoncontinuar(30);
        
     }else if(pantalla==19){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      fill(0);
-      textSize(20);
-      text("Gepeto lo repara y Pinocho se disculpa y promete estudiar...",30,375); 
        
     }else if(pantalla==20){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
-    
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("Gepeto hace un esfuerzo para comprar un libro de estudio y \ntiene que vender su unico abrigo...",30,375);  
+      botoncontinuar(30);
        
     }else if(pantalla==21){
       
       background(255);
-      botoncontinuar();
+      botoncontinuar(30);
       fill(0);
       textSize(350);
       textAlign(CENTER);
@@ -267,7 +157,7 @@ void draw(){
     }else if(pantalla==22){
       
       background(255);
-      botoncontinuar();
+      botoncontinuar(30);
       
       fill(0);
       textSize(350);
@@ -277,31 +167,18 @@ void draw(){
       text("mentira...",400,450);
  
     }else if(pantalla==23){
-      
+      fondo();
       cuadrotexto();
-      botoncontinuar();
+      botoncontinuar(30);
     
-      //TEXTO
-      fill(0);
-      textAlign(LEFT);
-      textSize(20);
-      text("Pinocho lo vendió para irse a ver un show.",30,375);  
        
     }else if(pantalla==24){
-      
+      fondo();
       cuadrotexto();
-      botonreiniciar();
-      textSize(20);
-      fill(234,212,43);
-      rect(500,400,130,80);
-      textAlign(LEFT);
-      fill(0);
-      text("CREDITOS", 510, 450);
-      
-      //TEXTO
-      textSize(20);
-      fill(0);
-      text("LALALALALALALALA AHORA SI, FIN.",30,375);  
+      //REINICIO
+      boton(650,400,130,80,26);
+      //CREDITOS
+      boton(500,400,130,80,27);
       
     }else if(pantalla == 25){
       
@@ -313,13 +190,7 @@ void draw(){
       if(mov>-600){
         mov--;
       }
-      fill(255);  
-      strokeWeight(2);
-      stroke(255,255,0);
-      rect(720,20,60,30);
-      fill(0);
-      textSize(15);
-      text("Skip",750,40);
+      botoncontinuar(28);
       
     }
     
@@ -331,16 +202,8 @@ void mouseClicked(){
   
   if(pantalla == 0){
     
-    if(mouseX > 355 && mouseX < 655 && mouseY > 225 && mouseY < 275){
-
-      pantalla = 1;
-
-    }
-    if(mouseX > 500 && mouseX <  630 && mouseY > 400 && mouseY < 480){
-    
-    pantalla = 25;
- 
-    }
+    botondecision(355,655,225,275,1);
+    botondecision(500,630,400,480,25);
   }
   
   if(pantalla == 1){
@@ -348,30 +211,18 @@ void mouseClicked(){
     botoncontinuaraccion();
     
   }else if(pantalla == 2){
+    botondecision(10,110,10,60,3);
+    botondecision(10,110,80,130,4);
     
-    if(mouseX > 10 && mouseX < 110 && mouseY > 10 && mouseY < 60){
-      
-      pantalla = 3;
-
-    }else if(mouseX > 10 && mouseX < 110 && mouseY > 80 && mouseY < 130){
-      
-      pantalla = 4;
-      }
   }else if(pantalla == 3){
     
     botoncontinuaraccion();
-    botonreiniciaraccion();
+    //REINICIO
+    botondecision(650, 780, 400, 480, 0);
     
   }else if(pantalla == 4){
-    
-    if(mouseX > 10 && mouseX < 110 && mouseY > 10 && mouseY < 60){
-      
-      pantalla = 5;
-
-    }else if(mouseX > 10 && mouseX < 110 && mouseY > 80 && mouseY < 130){
-      
-      pantalla = 6;
-      }
+    botondecision(10,110,10,60,5);
+    botondecision(10,110,80,130,6);
     
   }else if(pantalla == 5){
     
@@ -383,40 +234,26 @@ void mouseClicked(){
     
   }else if(pantalla == 7){
     
-    
-    if(mouseX > 10 && mouseX < 110 && mouseY > 10 && mouseY < 60){
-      
-      pantalla = 9;
-
-    }else if(mouseX > 10 && mouseX < 110 && mouseY > 80 && mouseY < 130){
-      
-      pantalla = 8;
-      }
+    botondecision(10,110,10,60,9);
+    botondecision(10,110,80,130,8);
     
   }else if(pantalla == 8){
     
     botoncontinuaraccion();
-    botonreiniciaraccion();
+    botondecision(650, 780, 400, 480, 0);
     
   }else if(pantalla == 9){
     
     botoncontinuaraccion();
     
   }else if(pantalla == 10){
-    
-    if(mouseX > 10 && mouseX < 110 && mouseY > 10 && mouseY < 60){
-      
-      pantalla = 12;
-
-    }else if(mouseX > 10 && mouseX < 110 && mouseY > 80 && mouseY < 130){
-      
-      pantalla = 11;
-      }
+    botondecision(10,110,10,60,12);
+    botondecision(10,110,80,130,11);
     
   }else if(pantalla == 11){
     
     botoncontinuaraccion();
-    botonreiniciaraccion();
+    botondecision(650, 780, 400, 480, 0);
     
   }else if(pantalla == 12){
     
@@ -468,20 +305,12 @@ void mouseClicked(){
     
   }else if(pantalla == 24){
     
-    botonreiniciaraccion();
-    
-    if(mouseX > 500 && mouseX <  630 && mouseY > 400 && mouseY < 480){
-    
-    pantalla = 25;
- 
-    }
+    botondecision(650, 780, 400, 480, 0);
+    botondecision(500,630,400,480,25);
     
   }else if(pantalla == 25){
       
-    if(mouseX > 720 && mouseX <  780 && mouseY > 20 && mouseY < 50){
-    
-    pantalla = 0;
-
+    botondecision(720,780,20,50,0);
+  
     }
   }
-}
