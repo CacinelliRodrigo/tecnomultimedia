@@ -17,9 +17,9 @@ class Pantalla {
     }
     posx = x_;
     posy = y_;
-    estado = "aventura";
+    estado = "menu";
     mov = 600;
-    p = 7;
+    p = 0;
   }
   //-------------------------------------------------------------//
   //METODOS
